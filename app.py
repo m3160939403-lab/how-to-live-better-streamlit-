@@ -1,5 +1,5 @@
+from pathlib import Path
 import streamlit as st
-import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="高性价比人生指南",
@@ -8,8 +8,5 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-components.iframe(
-    "https://eternity4719.github.io/HowToLiveBetter/",
-    height=900,
-    scrolling=True,
-)
+html = Path(__file__).with_name("HowToLiveBetter.html").read_text(encoding="utf-8")
+st.html(html, unsafe_allow_javascript=True)
